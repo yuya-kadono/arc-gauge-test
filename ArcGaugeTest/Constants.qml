@@ -2,8 +2,8 @@ pragma Singleton
 import QtQuick
 
 QtObject {
-    readonly property int width: 640
-    readonly property int height: 480
+    readonly property int width: 800
+    readonly property int height: 600
 
     /* Edit this comment to add your custom font */
     readonly property font font: Qt.font({

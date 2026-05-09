@@ -5,6 +5,9 @@ project(ArcGaugeTest VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QT_QML_GENERATE_QMLLS_INI ON)
 
+# Qt Design Studio の Studio Components を IDE 補完で認識させる
+list(APPEND QML_IMPORT_PATH "C:/Qt/Tools/QtDesignStudio/qt6_design_studio_reduced_version/qml")
+
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup(REQUIRES 6.5)
@@ -31,6 +34,7 @@ qt_add_qml_module(appArcGaugeTest
     QML_FILES
         ArcGaugeTestContent/App.qml
         ArcGaugeTestContent/Screen01.ui.qml
+        ArcGaugeTestContent/Screen02.ui.qml
 )
 
 set_target_properties(appArcGaugeTest PROPERTIES

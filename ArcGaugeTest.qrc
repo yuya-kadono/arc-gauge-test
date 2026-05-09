@@ -1,0 +1,11 @@
+<RCC>
+    <qresource>
+        <file>ArcGaugeTest.qmlproject</file>
+        <file>ArcGaugeTest/Constants.qml</file>
+        <file>ArcGaugeTest/qmldir</file>
+        <file>ArcGaugeTestContent/App.qml</file>
+        <file>ArcGaugeTestContent/Screen01.ui.qml</file>
+        <file>ArcGaugeTestContent/Screen02.ui.qml</file>
+        <file>qtquickcontrols2.conf</file>
+    </qresource>
+</RCC>

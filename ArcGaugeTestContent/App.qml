@@ -1,4 +1,6 @@
 import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import ArcGaugeTest
 
 Window {
@@ -8,8 +10,35 @@ Window {
     visible: true
     title: "ArcGaugeTest"
 
-    Screen01 {
-        id: mainScreen
-        anchors.centerIn: parent
+    StackLayout {
+        id: stack
+        anchors.fill: parent
+        currentIndex: 0
+
+        Screen01 { id: screen01 }
+        Screen02 { id: screen02 }
+    }
+
+    // スクリーン切り替えドット（下中央）
+    Row {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
+        spacing: 10
+        z: 10
+
+        Repeater {
+            model: 2
+            Rectangle {
+                width: 10
+                height: 10
+                radius: 5
+                color: stack.currentIndex === index ? "#4a6fa5" : "#b0b8c8"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: stack.currentIndex = index
+                }
+            }
+        }
     }
 }

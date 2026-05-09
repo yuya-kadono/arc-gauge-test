@@ -44,6 +44,10 @@ target_wrapper.*
 *.qmlproject.user
 *.qmlproject.user.*
 
+# QtDesignStudio
+*.qmlproject.qtds
+*.qmlproject.qtds.*
+
 # QtCreator CMake
 CMakeLists.txt.user*
 

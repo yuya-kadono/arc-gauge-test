@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="280" height="280">
+  <!-- background -->
+  <rect width="280" height="280" fill="#fafafa" stroke="#ddd" stroke-width="1" rx="6"/>
+
+  <!-- full circle (thin, reference) -->
+  <circle cx="100" cy="180" r="110" fill="none" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- 0° reference line (straight up) -->
+  <line x1="100" y1="180" x2="100" y2="70" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- arcBegin=60° ray -->
+  <line x1="100" y1="180" x2="195" y2="125" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- arcEnd=120° ray -->
+  <line x1="100" y1="180" x2="195" y2="235" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- thick arc ring -->
+  <!-- outer start: (100+135*cos(-30°), 180+135*sin(-30°)) = (216.9, 112.5) -->
+  <!-- outer end:   (216.9, 247.5) -->
+  <!-- inner start: (100+85*cos(-30°), 180+85*sin(-30°)) = (173.6, 137.5) -->
+  <!-- inner end:   (173.6, 222.5) -->
+  <!-- border (gray) -->
+  <path d="M 216.9,112.5 A 135,135 0 0,1 216.9,247.5 L 173.6,222.5 A 85,85 0 0,0 173.6,137.5 Z"
+        fill="#c0c0c0" opacity="0.6"/>
+  <!-- gauge (blue, bottom half for example value ~50%) -->
+  <defs>
+    <clipPath id="gaugeClip2">
+      <rect x="0" y="180" width="280" height="100"/>
+    </clipPath>
+  </defs>
+  <path d="M 216.9,112.5 A 135,135 0 0,1 216.9,247.5 L 173.6,222.5 A 85,85 0 0,0 173.6,137.5 Z"
+        fill="#4a6fa5" clip-path="url(#gaugeClip2)" opacity="0.85"/>
+
+  <!-- center dot -->
+  <circle cx="100" cy="180" r="4" fill="#333"/>
+  <text x="90" y="196" font-size="11" fill="#333" font-family="sans-serif">中心</text>
+
+  <!-- 0° label -->
+  <text x="104" y="82" font-size="12" fill="#555" font-family="sans-serif">0°</text>
+  <text x="108" y="96" font-size="10" fill="#888" font-family="sans-serif">(12時)</text>
+
+  <!-- arcBegin label -->
+  <path d="M 100,152 A 28,28 0 0,1 124.2,166" fill="none" stroke="#e07020" stroke-width="1.5"/>
+  <text x="122" y="157" font-size="12" fill="#e07020" font-weight="bold" font-family="sans-serif">arcBegin</text>
+  <text x="127" y="170" font-size="11" fill="#e07020" font-family="sans-serif">= 60°</text>
+
+  <!-- arcEnd label -->
+  <path d="M 100,208 A 28,28 0 0,1 124.2,194" fill="none" stroke="#2080c0" stroke-width="1.5"/>
+  <text x="122" y="202" font-size="12" fill="#2080c0" font-weight="bold" font-family="sans-serif">arcEnd</text>
+  <text x="122" y="215" font-size="11" fill="#2080c0" font-family="sans-serif">= 180° − arcBegin</text>
+  <text x="130" y="227" font-size="11" fill="#2080c0" font-family="sans-serif">= 120°</text>
+
+  <!-- symmetry axis (horizontal through center) -->
+  <line x1="60" y1="180" x2="230" y2="180" stroke="#c0c0c0" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="235" y="184" font-size="10" fill="#aaa" font-family="sans-serif">90°</text>
+
+  <!-- sweep label -->
+  <text x="10" y="175" font-size="11" fill="#333" font-family="sans-serif">弧は左側に</text>
+  <text x="10" y="189" font-size="11" fill="#333" font-family="sans-serif">開口した</text>
+  <text x="10" y="203" font-size="11" fill="#333" font-family="sans-serif">C 字型</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 210" width="360" height="210">
+  <rect width="360" height="210" fill="#fafafa" stroke="#ddd" stroke-width="1" rx="6"/>
+
+  <!-- scale 0.5: baseClipArea at (180,30) w=50 h=125, circle center at (76,92.5) -->
+  <!-- innerR=125, outerR=150 -->
+  <!-- inner endpoint: (76+125*sin60, 92.5-62.5) = (76+108.25, 30) = (184.25, 30) ≈ (184, 30) -->
+  <!-- outer rightmost: (76+150, 92.5) = (226, 92.5) -->
+  <!-- baseClipArea right = 230, margin = 4 -->
+
+  <!-- full circles dashed -->
+  <circle cx="76" cy="93" r="125" fill="none" stroke="#dce8ff" stroke-width="1" stroke-dasharray="4,3"/>
+  <circle cx="76" cy="93" r="150" fill="none" stroke="#d8f0d8" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- arc ring (visible) -->
+  <!-- outer: start=(76+150*sin60, 93-75)=(76+129.9, 18)=(205.9,18), end=(205.9,168) -->
+  <!-- inner: start=(76+125*sin60, 93-62.5)=(76+108.25, 30.5)=(184.25,30.5), end=(184.25,155.5) -->
+  <path d="M 206,18 A 150,150 0 0,1 206,168 L 184,156 A 125,125 0 0,0 184,30 Z"
+        fill="#b0b8c8" opacity="0.8"/>
+
+  <!-- baseClipArea -->
+  <rect x="180" y="30" width="50" height="125" fill="none" stroke="#e05050" stroke-width="2"/>
+  <text x="205" y="172" text-anchor="middle" font-size="11" fill="#e05050" font-family="sans-serif">baseClipArea</text>
+
+  <!-- A: arc endpoint x (orange dots) -->
+  <circle cx="184" cy="30" r="4" fill="#e07020"/>
+  <circle cx="184" cy="155" r="4" fill="#e07020"/>
+  <!-- show margin M at top-left of baseClipArea -->
+  <line x1="180" y1="22" x2="184" y2="22" stroke="#e07020" stroke-width="2"/>
+  <text x="182" y="18" text-anchor="middle" font-size="9" fill="#e07020" font-family="sans-serif">M</text>
+
+  <!-- B: outer rightmost (green) -->
+  <circle cx="226" cy="93" r="4" fill="#50a050"/>
+  <line x1="226" y1="30" x2="226" y2="155" stroke="#50a050" stroke-width="1" stroke-dasharray="3,2"/>
+  <!-- show margin M at top-right of baseClipArea -->
+  <line x1="226" y1="22" x2="230" y2="22" stroke="#50a050" stroke-width="2"/>
+  <text x="228" y="18" text-anchor="middle" font-size="9" fill="#50a050" font-family="sans-serif">M</text>
+
+  <!-- midpoint annotation -->
+  <line x1="184" y1="93" x2="226" y2="93" stroke="#7070c0" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <circle cx="205" cy="93" r="3" fill="#7070c0"/>
+  <text x="205" y="110" text-anchor="middle" font-size="10" fill="#7070c0" font-family="sans-serif">中点 = clipWidth/2</text>
+
+  <!-- A label -->
+  <text x="152" y="32" font-size="11" fill="#e07020" font-weight="bold" font-family="sans-serif">A(端点x)</text>
+  <!-- B label -->
+  <text x="231" y="90" font-size="11" fill="#50a050" font-weight="bold" font-family="sans-serif">B(外縁最右)</text>
+
+  <!-- circle center -->
+  <circle cx="76" cy="93" r="3" fill="#666"/>
+  <text x="14" y="93" font-size="10" fill="#666" font-family="sans-serif">円中心</text>
+  <line x1="34" y1="93" x2="73" y2="93" stroke="#aaa" stroke-width="1" stroke-dasharray="2,2"/>
+
+  <!-- formula box -->
+  <rect x="6" y="130" width="160" height="68" rx="4" fill="#fff8e8" stroke="#d4a020" stroke-width="1.5"/>
+  <text x="86" y="146" text-anchor="middle" font-size="10" fill="#333" font-family="sans-serif">M (arcRightMargin) =</text>
+  <text x="86" y="160" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">(clipWidth − sw)/2</text>
+  <text x="86" y="174" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">+ innerR×(sin θ − 1)/2</text>
+  <text x="86" y="190" text-anchor="middle" font-size="10" fill="#888" font-family="sans-serif">条件: (A + B)/2 = clipWidth/2</text>
+</svg>

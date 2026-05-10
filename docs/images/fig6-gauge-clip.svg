@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 245" width="360" height="245">
+  <rect width="360" height="245" fill="#fafafa" stroke="#ddd" stroke-width="1" rx="6"/>
+
+  <!-- Same geometry as Diagram 5: scale 0.5, baseClipArea at (165,30) w=50 h=125 -->
+  <!-- circle center (61, 92.5) -->
+
+  <!-- full gray ring (backgroundArc equivalent) -->
+  <path d="M 191,18 A 150,150 0 0,1 191,168 L 169,155 A 125,125 0 0,0 169,31 Z"
+        fill="#d3d3d3" opacity="0.9"/>
+
+  <!-- gaugeClipArea for value=65%: height=125*0.65=81.25, y=30+125-81.25=73.75 -->
+  <defs>
+    <clipPath id="gc6">
+      <rect x="155" y="73.75" width="70" height="81.25"/>
+    </clipPath>
+  </defs>
+  <!-- blue gauge ring clipped -->
+  <path d="M 191,18 A 150,150 0 0,1 191,168 L 169,155 A 125,125 0 0,0 169,31 Z"
+        fill="#4a6fa5" clip-path="url(#gc6)"/>
+
+  <!-- baseClipArea border -->
+  <rect x="165" y="30" width="50" height="125" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- gaugeClipArea rect indicator -->
+  <rect x="215" y="73.75" width="12" height="81.25" fill="#4a6fa5" opacity="0.15" stroke="#4a6fa5" stroke-width="1"/>
+  <line x1="155" y1="73.75" x2="230" y2="73.75" stroke="#4a6fa5" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- value=100% mark -->
+  <line x1="155" y1="30" x2="165" y2="30" stroke="#aaa" stroke-width="1"/>
+  <text x="148" y="34" text-anchor="end" font-size="10" fill="#888" font-family="sans-serif">100%</text>
+
+  <!-- value=0% mark -->
+  <line x1="155" y1="155" x2="165" y2="155" stroke="#aaa" stroke-width="1"/>
+  <text x="148" y="159" text-anchor="end" font-size="10" fill="#888" font-family="sans-serif">0%</text>
+
+  <!-- currentValue=65% mark -->
+  <text x="148" y="77" text-anchor="end" font-size="10" fill="#4a6fa5" font-weight="bold" font-family="sans-serif">65%</text>
+  <circle cx="155" cy="73.75" r="3" fill="#4a6fa5"/>
+
+  <!-- gaugeClipArea height annotation -->
+  <line x1="230" y1="73.75" x2="230" y2="155" stroke="#4a6fa5" stroke-width="1.5"/>
+  <line x1="226" y1="73.75" x2="234" y2="73.75" stroke="#4a6fa5" stroke-width="1.5"/>
+  <line x1="226" y1="155" x2="234" y2="155" stroke="#4a6fa5" stroke-width="1.5"/>
+  <text x="237" y="118" font-size="11" fill="#4a6fa5" font-family="sans-serif">clipHeight</text>
+  <text x="237" y="131" font-size="11" fill="#4a6fa5" font-family="sans-serif">× value/100</text>
+
+  <!-- formula box -->
+  <rect x="6" y="30" width="152" height="92" rx="4" fill="#e8f0fb" stroke="#7aa8d4" stroke-width="1.5"/>
+  <text x="82" y="47" text-anchor="middle" font-size="11" fill="#333" font-weight="bold" font-family="sans-serif">gaugeClipArea</text>
+  <text x="82" y="62" text-anchor="middle" font-size="11" fill="#333" font-family="monospace">anchors.bottom:</text>
+  <text x="82" y="76" text-anchor="middle" font-size="11" fill="#333" font-family="monospace">  parent.bottom</text>
+  <text x="82" y="91" text-anchor="middle" font-size="11" fill="#333" font-family="monospace">height:</text>
+  <text x="82" y="105" text-anchor="middle" font-size="11" fill="#333" font-family="monospace">  clipHeight×val/100</text>
+
+  <!-- explanation -->
+  <text x="6" y="182" font-size="11" fill="#333" font-family="sans-serif">・clip:true で弧を切り抜く</text>
+  <text x="6" y="197" font-size="11" fill="#333" font-family="sans-serif">・value 増加 → 矩形が上に伸びる</text>
+  <text x="6" y="212" font-size="11" fill="#333" font-family="sans-serif">・gaugeArc は背景弧と同位置に</text>
+  <text x="6" y="227" font-size="11" fill="#333" font-family="sans-serif">  配置（y補正あり）</text>
+</svg>

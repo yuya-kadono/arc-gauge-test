@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 355 250" width="355" height="250">
+  <!-- background -->
+  <rect width="355" height="250" fill="#fafafa" stroke="#ddd" stroke-width="1" rx="6"/>
+
+  <!-- scale: clipHeight_d=112, arcBegin=60, innerR_d=112*cos30/cos60=... -->
+  <!-- cos60=0.5, so innerR=(clipHeight/2)/cos60=56/0.5=112 at scale 0.5 -->
+  <!-- but let's use visual: clipHeight_d=112, innerR_d=112 (so cos theta = 112/2 / 112 = 0.5, theta=60) -->
+  <!-- actually arcBegin=60 means theta=60, cos60=0.5, innerR=(112/2)/0.5=112 -->
+  <!-- center at (53, 130+56) = (53, 186) ... too low, let me set center at (60, 155) -->
+  <!-- clipHeight_d=100, innerR_d=100 -->
+  <!-- arc endpoints: (60+100*sin60, 155-50)=(60+86.6, 105)=(146.6, 105) and (146.6, 205) -->
+
+  <!-- circle (dashed) -->
+  <circle cx="60" cy="155" r="100" fill="none" stroke="#dce8ff" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- arc ring (schematic, outerR=150) -->
+  <!-- outer: start=(60+150*sin60, 155-75)=(60+129.9, 80)=(189.9, 80), end=(189.9, 230) -->
+  <!-- inner: start=(60+100*sin60, 155-50)=(60+86.6, 105)=(146.6, 105), end=(146.6, 205) -->
+  <path d="M 189.9,80 A 150,150 0 0,1 189.9,230 L 146.6,205 A 100,100 0 0,0 146.6,105 Z"
+        fill="#c0c0c0" opacity="0.65"/>
+
+  <!-- base clip area box (dotted) -->
+  <rect x="146.6" y="105" width="60" height="100" fill="none" stroke="#e05050" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="176.6" y="217" text-anchor="middle" font-size="10" fill="#e05050" font-family="sans-serif">baseClipArea</text>
+
+  <!-- right angle at arc endpoint -->
+  <rect x="146.6" y="105" width="10" height="10" fill="none" stroke="#aaa" stroke-width="1.5"/>
+
+  <!-- right triangle: center to endpoint horizontal, then vertical to midpoint -->
+  <!-- horizontal: (60,155) to (146.6, 155) -->
+  <line x1="60" y1="155" x2="146.6" y2="155" stroke="#50a050" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- vertical: (146.6,105) to (146.6,155) -->
+  <line x1="146.6" y1="105" x2="146.6" y2="155" stroke="#e07020" stroke-width="2.5"/>
+  <!-- hypotenuse: (60,155) to (146.6,105) -->
+  <line x1="60" y1="155" x2="146.6" y2="105" stroke="#4a6fa5" stroke-width="2.5"/>
+
+  <!-- center dot -->
+  <circle cx="60" cy="155" r="4" fill="#333"/>
+
+  <!-- theta angle arc -->
+  <path d="M 60,135 A 20,20 0 0,1 77.3,145" fill="none" stroke="#8844aa" stroke-width="2"/>
+  <text x="78" y="137" font-size="13" fill="#8844aa" font-weight="bold" font-family="sans-serif">θ</text>
+
+  <!-- innerR label -->
+  <text x="85" y="123" font-size="13" fill="#4a6fa5" font-weight="bold" font-family="sans-serif">innerR</text>
+
+  <!-- clipHeight/2 label -->
+  <text x="7" y="143" font-size="12" fill="#e07020" font-family="sans-serif">clipHeight</text>
+  <text x="15" y="157" font-size="12" fill="#e07020" font-family="sans-serif">──────</text>
+  <text x="30" y="171" font-size="12" fill="#e07020" font-family="sans-serif">2</text>
+
+  <!-- sin theta label -->
+  <text x="84" y="163" font-size="11" fill="#50a050" font-family="sans-serif">innerR × sin θ</text>
+
+  <!-- formula box -->
+  <rect x="215" y="155" width="130" height="68" rx="4" fill="#e8f0fb" stroke="#7aa8d4" stroke-width="1.5"/>
+  <text x="280" y="171" text-anchor="middle" font-size="11" fill="#333" font-family="monospace">innerR =</text>
+  <text x="280" y="186" text-anchor="middle" font-size="11" fill="#333" font-family="monospace">clipHeight/2</text>
+  <line x1="228" y1="192" x2="342" y2="192" stroke="#333" stroke-width="1.2"/>
+  <text x="280" y="208" text-anchor="middle" font-size="11" fill="#333" font-family="monospace">cos θ</text>
+</svg>

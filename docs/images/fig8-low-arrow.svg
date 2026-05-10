@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 220" width="380" height="220">
+  <rect width="380" height="220" fill="#fafafa" stroke="#ddd" stroke-width="1" rx="6"/>
+
+  <!-- same center (55,130), innerR=130, outerR=155 -->
+  <!-- inner arc -->
+  <path d="M 167.6,65 A 130,130 0 0,1 167.6,195" fill="none" stroke="#ccc" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- ring -->
+  <path d="M 189.2,52.5 A 155,155 0 0,1 189.2,207.5 L 167.6,195 A 130,130 0 0,0 167.6,65 Z"
+        fill="#d3d3d3" opacity="0.6"/>
+  <!-- outer arc highlight -->
+  <path d="M 189.2,52.5 A 155,155 0 0,1 189.2,207.5" fill="none" stroke="#50a050" stroke-width="2.5" stroke-dasharray="6,3"/>
+
+  <!-- horizontal line at lowValue=35%: dy=(0.5-0.35)*..., y_arrow=150 (below center) -->
+  <!-- dy_d = 150-130=20 (below center) -->
+  <!-- intersection outer: 55+sqrt(155²-20²)=55+sqrt(23625)=55+153.7=208.7 -->
+  <line x1="20" y1="150" x2="208.7" y2="150" stroke="#50a050" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- dy vertical line -->
+  <line x1="55" y1="130" x2="55" y2="150" stroke="#e07020" stroke-width="2"/>
+  <line x1="48" y1="130" x2="62" y2="130" stroke="#e07020" stroke-width="1.5"/>
+  <line x1="48" y1="150" x2="62" y2="150" stroke="#e07020" stroke-width="1.5"/>
+  <text x="20" y="143" font-size="12" fill="#e07020" font-family="sans-serif">dy</text>
+
+  <!-- sqrt horizontal -->
+  <line x1="55" y1="150" x2="208.7" y2="150" stroke="#2060a0" stroke-width="2"/>
+  <rect x="55" y="140" width="10" height="10" fill="none" stroke="#aaa" stroke-width="1.5"/>
+  <text x="128" y="144" text-anchor="middle" font-size="12" fill="#2060a0" font-family="sans-serif">√(outerR²−dy²)</text>
+
+  <!-- intersection -->
+  <circle cx="208.7" cy="150" r="5" fill="#50a050"/>
+
+  <!-- lowArrow ◀ -->
+  <text x="209" y="158" font-size="18" fill="#50a050" font-family="sans-serif">◀</text>
+  <!-- 4px gap annotation -->
+  <line x1="208.7" y1="143" x2="212" y2="143" stroke="#50a050" stroke-width="1"/>
+  <text x="210" y="140" font-size="9" fill="#50a050" font-family="sans-serif">4</text>
+
+  <!-- circle center -->
+  <circle cx="55" cy="130" r="4" fill="#666"/>
+  <text x="62" y="114" font-size="10" fill="#666" font-family="sans-serif">innerCircleCx</text>
+  <text x="62" y="126" font-size="10" fill="#666" font-family="sans-serif">(円中心)</text>
+
+  <!-- formula -->
+  <rect x="240" y="40" width="132" height="100" rx="4" fill="#e8f9e8" stroke="#50a050" stroke-width="1.5"/>
+  <text x="306" y="57" text-anchor="middle" font-size="11" fill="#333" font-weight="bold" font-family="sans-serif">lowArrow.x =</text>
+  <text x="306" y="72" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">baseClipArea.x</text>
+  <text x="306" y="86" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">+ innerCircleCx</text>
+  <text x="306" y="100" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">+ √(outerR²−dy²)</text>
+  <text x="306" y="114" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">+ 4</text>
+
+  <rect x="240" y="150" width="132" height="30" rx="4" fill="#e8f9e8" stroke="#50a050" stroke-width="1.5"/>
+  <text x="306" y="163" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">outerR = innerR + sw</text>
+  <text x="306" y="176" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">(= _outerR)</text>
+</svg>

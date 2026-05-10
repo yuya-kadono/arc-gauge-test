@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 220" width="380" height="220">
+  <rect width="380" height="220" fill="#fafafa" stroke="#ddd" stroke-width="1" rx="6"/>
+
+  <!-- schematic: circle center at (55, 130), innerR=130, arcBegin=60, arcEnd=120 -->
+  <!-- inner arc: start=(55+130*sin60, 130-65)=(55+112.6,65)=(167.6,65), end=(167.6,195) -->
+  <!-- outerR=155 for reference -->
+
+  <!-- inner circle arc (visible ring portion) -->
+  <path d="M 167.6,65 A 130,130 0 0,1 167.6,195" fill="none" stroke="#888" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- ring (schematic) -->
+  <!-- outer: start=(55+155*sin60, 130-77.5)=(55+134.2,52.5)=(189.2,52.5), end=(189.2,207.5) -->
+  <path d="M 189.2,52.5 A 155,155 0 0,1 189.2,207.5 L 167.6,195 A 130,130 0 0,0 167.6,65 Z"
+        fill="#d3d3d3" opacity="0.6"/>
+
+  <!-- horizontal line at highValue=75%: dy=0, use y_arrow=90 (above center) -->
+  <!-- dy_d = center_y - y_arrow = 130-90 = 40 -->
+  <!-- intersection x = 55 + sqrt(130²-40²) = 55 + sqrt(15300) = 55+123.7=178.7 -->
+  <line x1="20" y1="90" x2="178.7" y2="90" stroke="#e05050" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- dy vertical line -->
+  <line x1="55" y1="90" x2="55" y2="130" stroke="#e07020" stroke-width="2"/>
+  <line x1="48" y1="90" x2="62" y2="90" stroke="#e07020" stroke-width="1.5"/>
+  <line x1="48" y1="130" x2="62" y2="130" stroke="#e07020" stroke-width="1.5"/>
+  <text x="28" y="113" font-size="12" fill="#e07020" font-family="sans-serif">dy</text>
+
+  <!-- sqrt horizontal line from center to intersection -->
+  <line x1="55" y1="90" x2="178.7" y2="90" stroke="#50a050" stroke-width="2"/>
+  <!-- right angle mark -->
+  <rect x="55" y="90" width="10" height="10" fill="none" stroke="#aaa" stroke-width="1.5"/>
+
+  <!-- sqrt label -->
+  <text x="112" y="84" text-anchor="middle" font-size="12" fill="#50a050" font-family="sans-serif">√(innerR²−dy²)</text>
+
+  <!-- intersection dot -->
+  <circle cx="178.7" cy="90" r="5" fill="#e05050"/>
+
+  <!-- arrow (highArrow ▶) -->
+  <text x="153" y="96" font-size="18" fill="#e05050" font-family="sans-serif">▶</text>
+  <!-- width annotation -->
+  <line x1="153" y1="99" x2="175" y2="99" stroke="#e05050" stroke-width="1"/>
+  <line x1="153" y1="96" x2="153" y2="102" stroke="#e05050" stroke-width="1"/>
+  <line x1="175" y1="96" x2="175" y2="102" stroke="#e05050" stroke-width="1"/>
+  <text x="164" y="110" text-anchor="middle" font-size="9" fill="#e05050" font-family="sans-serif">width</text>
+  <!-- 4px gap -->
+  <line x1="175" y1="85" x2="178.7" y2="85" stroke="#e05050" stroke-width="1"/>
+  <text x="177" y="82" font-size="9" fill="#e05050" font-family="sans-serif">4</text>
+
+  <!-- circle center -->
+  <circle cx="55" cy="130" r="4" fill="#666"/>
+  <text x="62" y="127" font-size="10" fill="#666" font-family="sans-serif">innerCircleCx</text>
+  <text x="62" y="140" font-size="10" fill="#666" font-family="sans-serif">(円中心)</text>
+
+  <!-- formula -->
+  <rect x="240" y="40" width="132" height="100" rx="4" fill="#fde8e8" stroke="#e05050" stroke-width="1.5"/>
+  <text x="306" y="57" text-anchor="middle" font-size="11" fill="#333" font-weight="bold" font-family="sans-serif">highArrow.x =</text>
+  <text x="306" y="72" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">baseClipArea.x</text>
+  <text x="306" y="86" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">+ innerCircleCx</text>
+  <text x="306" y="100" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">+ √(r²−dy²)</text>
+  <text x="306" y="114" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">− width − 4</text>
+
+  <!-- dy formula -->
+  <rect x="240" y="150" width="132" height="42" rx="4" fill="#fff8e8" stroke="#e07020" stroke-width="1.5"/>
+  <text x="306" y="166" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">dy = clipHeight ×</text>
+  <text x="306" y="180" text-anchor="middle" font-size="10" fill="#333" font-family="monospace">(0.5 − val/100)</text>
+</svg>

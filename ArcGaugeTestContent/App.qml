@@ -17,6 +17,7 @@ Window {
 
         Screen01 { id: screen01 }
         Screen02 { id: screen02 }
+        Screen03 { id: screen03 }
     }
 
     // スクリーン切り替えドット（下中央）
@@ -28,7 +29,7 @@ Window {
         z: 10
 
         Repeater {
-            model: 2
+            model: 3
             Rectangle {
                 width: 10
                 height: 10
